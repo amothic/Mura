@@ -43,27 +43,27 @@
 		D0481DB11481A29E008E4462 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D0481DB31481A29E008E4462 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D0481DB51481A29E008E4462 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		D0481DB91481A29E008E4462 /* Mura-Info.plist */ = {isa = PBXFileReference; path = "Mura-Info.plist"; sourceTree = "<group>"; };
+		D0481DB91481A29E008E4462 /* Mura-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mura-Info.plist"; sourceTree = "<group>"; };
 		D0481DBB1481A29E008E4462 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D0481DBD1481A29E008E4462 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D0481DBF1481A29E008E4462 /* Mura-Prefix.pch */ = {isa = PBXFileReference; path = "Mura-Prefix.pch"; sourceTree = "<group>"; };
-		D0481DC01481A29E008E4462 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		D0481DBF1481A29E008E4462 /* Mura-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mura-Prefix.pch"; sourceTree = "<group>"; };
+		D0481DC01481A29E008E4462 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D0481DC11481A29E008E4462 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D0481DC41481A29E008E4462 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		D0481DC71481A29E008E4462 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		D0481DC91481A29E008E4462 /* FirstViewController.h */ = {isa = PBXFileReference; path = FirstViewController.h; sourceTree = "<group>"; };
+		D0481DC91481A29E008E4462 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		D0481DCA1481A29E008E4462 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		D0481DCC1481A29F008E4462 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		D0481DCE1481A29F008E4462 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		D0481DD01481A29F008E4462 /* SecondViewController.h */ = {isa = PBXFileReference; path = SecondViewController.h; sourceTree = "<group>"; };
+		D0481DD01481A29F008E4462 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		D0481DD11481A29F008E4462 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		D0481DD31481A29F008E4462 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		D0481DD51481A29F008E4462 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		D0481DDC1481A29F008E4462 /* MuraTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuraTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0481DDD1481A29F008E4462 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		D0481DE51481A29F008E4462 /* MuraTests-Info.plist */ = {isa = PBXFileReference; path = "MuraTests-Info.plist"; sourceTree = "<group>"; };
+		D0481DE51481A29F008E4462 /* MuraTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MuraTests-Info.plist"; sourceTree = "<group>"; };
 		D0481DE71481A29F008E4462 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D0481DE91481A29F008E4462 /* MuraTests.h */ = {isa = PBXFileReference; path = MuraTests.h; sourceTree = "<group>"; };
+		D0481DE91481A29F008E4462 /* MuraTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MuraTests.h; sourceTree = "<group>"; };
 		D0481DEA1481A29F008E4462 /* MuraTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MuraTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
