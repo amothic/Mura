@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface SecondViewController : UIViewController
+{
+    IBOutlet UITextField *userName;
+}
+@property (nonatomic,retain) UITextField *userName;
+
+- (IBAction)nameEditingEnd:(id)sender;
+
 
 @end

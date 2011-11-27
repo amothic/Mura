@@ -10,6 +10,33 @@
 
 @implementation SecondViewController
 
+@synthesize userName;
+
+- (IBAction)nameEditingEnd:(id)sender
+{
+    [userName resignFirstResponder];
+    
+    if ( [userName.text length] > 0 ) {
+        
+        NSString *url = [NSString stringWithFormat:@"http://web.amothic.com/chat/settings.php"];
+		
+		NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+		[request setURL:[NSURL URLWithString:url]];
+		[request setHTTPMethod:@"POST"];
+		
+		NSMutableData *body = [NSMutableData data];
+		[body appendData:[[NSString stringWithFormat:@"user=%@&name=%@", 
+						   [UIDevice currentDevice].uniqueIdentifier,
+						   userName.text] dataUsingEncoding:NSUTF8StringEncoding]];
+		[request setHTTPBody:body];
+		
+		NSHTTPURLResponse *response = nil;
+		NSError *error = [[NSError alloc] init];
+		[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+		
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
