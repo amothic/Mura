@@ -13,13 +13,13 @@
     IBOutlet UITextField *messageText;
     IBOutlet UIButton *sendButton;
     IBOutlet UITableView *messageList;
-    
+
     NSMutableData *receivedData;
     NSMutableArray *messages;
     int lastId;
-    
+
     NSTimer *timer;
-    
+
     NSXMLParser *chatParser;
     NSString *msgAdded;
     NSMutableString *msgUser;

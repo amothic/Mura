@@ -36,37 +36,37 @@
 - (void)getNewMessages {
 	NSString *url = [NSString stringWithFormat:@"http://web.amothic.com/chat/messages.php?past=%ld&t=%ld",
 					 lastId, time(0) ];
-	
+
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
 	[request setURL:[NSURL URLWithString:url]];
 	[request setHTTPMethod:@"GET"];
-	
-    NSURLConnection *conn=[[NSURLConnection alloc] initWithRequest:request delegate:self];  
+
+    NSURLConnection *conn=[[NSURLConnection alloc] initWithRequest:request delegate:self];
     if (conn)
-    {  
-        receivedData = [NSMutableData data];  
-    }   
-    else   
-    {  
-    }  
+    {
+        receivedData = [NSMutableData data];
+    }
+    else
+    {
+    }
 }
 
 - (void)timerCallback {
 	[self getNewMessages];
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response  
-{  
-    [receivedData setLength:0];  
-}  
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    [receivedData setLength:0];
+}
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data  
-{  
-    [receivedData appendData:data];  
-}  
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [receivedData appendData:data];
+}
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection  
-{  
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
 	if ( messages == nil )
 		messages = [[NSMutableArray alloc] init];
 
@@ -74,15 +74,15 @@
         [chatParser setDelegate:self];
 
     [chatParser parse];
-    
+
 	[messageList reloadData];
-	
+
 	NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:
                                 [self methodSignatureForSelector: @selector(timerCallback)]];
 	[invocation setTarget:self];
 	[invocation setSelector:@selector(timerCallback)];
 	timer = [NSTimer scheduledTimerWithTimeInterval:5.0 invocation:invocation repeats:NO];
-}  
+}
 
 // Parsing the XML message list
 
@@ -115,9 +115,9 @@
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
 	if ( [elementName isEqualToString:@"message"] ) {
 		[messages addObject:[NSDictionary dictionaryWithObjectsAndKeys:msgAdded,@"added",msgUser,@"user",msgText,@"text",nil]];
-		
+
 		lastId = msgId;
-		
+
 	}
 	if ( [elementName isEqualToString:@"user"] ) {
 		inUser = NO;
@@ -148,13 +148,13 @@
 		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ChatListItem" owner:self options:nil];
 		cell = (UITableViewCell *)[nib objectAtIndex:0];
 	}
-	
+
 	NSDictionary *itemAtIndex = (NSDictionary *)[messages objectAtIndex:indexPath.row];
 	UILabel *textLabel = (UILabel *)[cell viewWithTag:1];
 	textLabel.text = [itemAtIndex objectForKey:@"text"];
 	UILabel *userLabel = (UILabel *)[cell viewWithTag:2];
 	userLabel.text = [itemAtIndex objectForKey:@"user"];
-	
+
 	return cell;
 }
 
@@ -163,26 +163,26 @@
 - (IBAction)sendClicked:(id)sender {
 	[messageText resignFirstResponder];
 	if ( [messageText.text length] > 0 ) {
-		
+
 		NSString *url = [NSString stringWithFormat:@"http://web.amothic.com/chat/add.php"];
-		
+
 		NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
 		[request setURL:[NSURL URLWithString:url]];
 		[request setHTTPMethod:@"POST"];
-		
+
 		NSMutableData *body = [NSMutableData data];
-		[body appendData:[[NSString stringWithFormat:@"user=%@&message=%@", 
+		[body appendData:[[NSString stringWithFormat:@"user=%@&message=%@",
 						   [UIDevice currentDevice].uniqueIdentifier,
 						   messageText.text] dataUsingEncoding:NSUTF8StringEncoding]];
 		[request setHTTPBody:body];
-		
+
 		NSHTTPURLResponse *response = nil;
 		NSError *error = [[NSError alloc] init];
 		[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-		
+
 		[self getNewMessages];
 	}
-	
+
 	messageText.text = @"";
 }
 
@@ -190,10 +190,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
+
 	messageList.dataSource = self;
 	messageList.delegate = self;
-	
+
 	[self getNewMessages];
 }
 
